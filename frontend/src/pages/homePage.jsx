@@ -3,13 +3,15 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import MoodCard from "../components/moodCard";
 import Track_card from "../components/track_card";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 function HomePage() {
   const [tracks, setTracks] = useState([]);
   const token = localStorage.getItem("token");
   const handleMoodClick = async (mood) => {
     try {
-      const res = await axios.post("http://localhost:5001/api/mood", { mood },{ headers: { Authorization: `Bearer ${token}` } });
+      const res = await axios.post(`${API_URL}/api/mood`, { mood },{ headers: { Authorization: `Bearer ${token}` } });
       setTracks(res.data.tracks);
     } catch (err) {
       console.error(err);

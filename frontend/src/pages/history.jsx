@@ -1,13 +1,17 @@
   import axios from 'axios';
 import { useEffect, useState } from "react";
 import History_card from '../components/history_Card';
+const API_URL = import.meta.env.VITE_API_URL;
+
+
+
   function history() {
       const [history,setHistory]=useState([]);
       const token = localStorage.getItem("token");
 
 const fetchHistory = async () => {
   try {
-    const res = await axios.get("http://localhost:5001/api/history", {
+    const res = await axios.get(`${API_URL}/api/history`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     setHistory(res.data);
