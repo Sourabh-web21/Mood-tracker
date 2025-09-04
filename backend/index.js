@@ -12,7 +12,7 @@ const app = express();
 // ----------------- CORS -----------------
 const allowedOrigins = [
   "http://localhost:3000",                        // local frontend
-  "https://mood-tracker-wine-nine.vercel.app"    // Vercel frontend
+  "https://mood-tracker-git-main-sourabhs-projects-f5702034.vercel.app"    // Vercel frontend
 ];
 
 app.use(cors({
